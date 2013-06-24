@@ -116,7 +116,7 @@ module Sauce
         :public =>          @public,
         :tags =>            @tags,
         :passed =>          @passed,
-        :build =>	    @build
+        :build =>	          @build
       }
 
       options[:except].each { |key| json.delete(key) } if options[:except]
@@ -153,7 +153,7 @@ module Sauce
       @tags            = options["tags"]
       @passed          = options["passed"]
       @custom_data     = options['custom-data']
-      @build	       = options["build"]
+      @build	         = options["build"]
 
       raise NoIDError if @id.nil? or @id.empty?
     end
