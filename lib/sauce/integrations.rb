@@ -99,7 +99,7 @@ begin
 
           config = Sauce::Config.new
           if config[:application_host]
-            @@tunnel ||= Sauce::Connect.new(:host => config[:application_host], :port => config[:application_port] || 80)
+            @@tunnel ||= Sauce::Connect.new(:host => config[:application_host], :port => config[:application_port] || 80, :quiet => true)
             @@tunnel.connect
             @@tunnel.wait_until_ready
           end
@@ -120,7 +120,7 @@ begin
             need_tunnel = files_to_run.any? {|file| file =~ /spec\/selenium\//}
           end
           if need_tunnel
-            @@tunnel ||= Sauce::Connect.new(:host => config[:application_host], :port => config[:application_port] || 80)
+            @@tunnel ||= Sauce::Connect.new(:host => config[:application_host], :port => config[:application_port] || 80, :quiet => true)
             @@tunnel.connect
             @@tunnel.wait_until_ready
           end
